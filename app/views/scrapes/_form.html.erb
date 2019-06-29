@@ -1,0 +1,32 @@
+<%= form_with(model: scrape, local: true) do |form| %>
+  <% if scrape.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scrape.errors.count, "error") %> prohibited this scrape from being saved:</h2>
+
+      <ul>
+      <% scrape.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :largest_image %>
+    <%= form.text_field :largest_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

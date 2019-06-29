@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @scrape.url %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @scrape.status %>
+</p>
+
+<p>
+  <strong>Largest image:</strong>
+  <%= @scrape.largest_image %>
+</p>
+
+<%= link_to 'Edit', edit_scrape_path(@scrape) %> |
+<%= link_to 'Back', scrapes_path %>
