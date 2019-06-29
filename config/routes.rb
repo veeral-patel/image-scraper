@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :scrapes
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :scrapes, except: [:edit]
+  
+  root :to => 'scrapes#index'
 end
