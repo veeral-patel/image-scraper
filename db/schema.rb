@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_230608) do
+ActiveRecord::Schema.define(version: 2019_06_29_232505) do
 
   create_table "images", force: :cascade do |t|
     t.string "image_url"
-    t.integer "width"
-    t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "scrape_id"
+    t.integer "size"
     t.index ["scrape_id"], name: "index_images_on_scrape_id"
   end
 
   create_table "scrapes", force: :cascade do |t|
     t.string "url"
     t.integer "status"
-    t.string "largest_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

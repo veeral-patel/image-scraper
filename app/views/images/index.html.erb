@@ -7,8 +7,7 @@
     <tr>
       <th>Image url</th>
       <th>Scrape</th>
-      <th>Width</th>
-      <th>Height</th>
+      <th>Size</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +17,7 @@
       <tr>
         <td><%= image.image_url %></td>
         <td><%= image.scrape %></td>
-        <td><%= image.width %></td>
-        <td><%= image.height %></td>
+        <td><%= image.size %></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
