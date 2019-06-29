@@ -26,7 +26,6 @@ class ScrapesController < ApplicationController
   def create
     @scrape = Scrape.new(scrape_params)
     @scrape.status = :incomplete
-    @scrape.largest_image = "N/A"
 
     respond_to do |format|
       if @scrape.save
