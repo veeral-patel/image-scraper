@@ -32,6 +32,8 @@ class ScrapesController < ApplicationController
       if @scrape.save
         format.html { redirect_to @scrape, notice: 'Scrape was successfully created.' }
         format.json { render :show, status: :created, location: @scrape }
+
+        ScrapeLargestImageJob.perform_later @scrape
       else
         format.html { render :new }
         format.json { render json: @scrape.errors, status: :unprocessable_entity }
