@@ -5,6 +5,7 @@ class ScrapesController < ApplicationController
   # GET /scrapes.json
   def index
     @scrapes = Scrape.all
+    @scrape = Scrape.new
   end
 
   # GET /scrapes/1

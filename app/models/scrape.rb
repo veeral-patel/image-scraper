@@ -3,7 +3,7 @@ class Scrape < ApplicationRecord
 
     validates :url, presence: true
 
-    has_many :images
+    has_many :images, dependent: :destroy
 
     def largest_image
         max_image_size = self.images.maximum('size')

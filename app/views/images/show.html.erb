@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @image.image_url %>
-</p>
+<h2>Image from <%= @image.scrape %></h2>
 
-<p>
-  <strong>Width:</strong>
-  <%= @image.width %>
-</p>
+<br>
 
-<p>
-  <strong>Height:</strong>
-  <%= @image.height %>
-</p>
+<a href="<%= @image.image_url %>"><%= @image.image_url %></a>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
+<br><br>
+
+<img src="<%= @image.image_url %>">
+
+<br>
+
 <%= link_to 'Back', images_path %>

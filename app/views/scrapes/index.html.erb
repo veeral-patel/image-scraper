@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Scrapes</h1>
+<h3>Scrapes</h3>
 
-<table>
+<br>
+
+<table class="table">
   <thead>
     <tr>
       <th>Url</th>
       <th>Created At</th>
       <th>Status</th>
       <th>Largest image</th>
-      <th colspan="2"></th>
+      <th>Show</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
@@ -29,4 +32,30 @@
 
 <br>
 
-<%= link_to 'New Scrape', new_scrape_path %>
+<h5>New Scrape</h5>
+
+<%= form_with(model: @scrape, local: true) do |form| %>
+  <% if @scrape.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scrape.errors.count, "error") %> prohibited this scrape from being saved:</h2>
+
+      <ul>
+      <% @scrape.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url, "URL" %>
+    <br>
+    <%= form.text_field :url, placeholder: "https://nfl.com" %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
