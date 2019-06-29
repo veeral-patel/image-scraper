@@ -25,6 +25,8 @@ class ScrapesController < ApplicationController
   # POST /scrapes.json
   def create
     @scrape = Scrape.new(scrape_params)
+    @scrape.status = :incomplete
+    @scrape.largest_image = "N/A"
 
     respond_to do |format|
       if @scrape.save
@@ -69,6 +71,6 @@ class ScrapesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scrape_params
-      params.require(:scrape).permit(:url, :status, :largest_image)
+      params.require(:scrape).permit(:url)
     end
 end
