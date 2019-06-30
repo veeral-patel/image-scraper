@@ -14,6 +14,7 @@
       <th>Url</th>
       <th>Created At</th>
       <th>Status</th>
+      <th># Images</th>
       <th>Largest image</th>
       <th>Show</th>
       <th>Destroy</th>
@@ -26,6 +27,7 @@
         <td><%= scrape.url %></td>
         <td><%= scrape.created_at %></td>
         <td><%= scrape.status %></td>
+        <td><%= scrape.images.count %></td>
         <td><%= scrape.largest_image %></td>
         <td><%= link_to 'Show', scrape %></td>
         <td><%= link_to 'Destroy', scrape, method: :delete, data: { confirm: 'Are you sure?' } %></td>
