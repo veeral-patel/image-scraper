@@ -26,7 +26,7 @@ rails serve
 bundle exec rake jobs:work
 ```
 
-# How it works
+## How it works
 
 1. You enter an URL to scrape
 2. This creates a `Scrape`. In `scrape_controller.rb`, a background job is triggered to scrape all of that URL's images.
