@@ -30,7 +30,7 @@ class ScrapesController < ApplicationController
 
     respond_to do |format|
       if @scrape.save
-        format.html { redirect_to @scrape, notice: 'Scrape was successfully created.' }
+        format.html { redirect_to scrapes_path, notice: 'Created scrape. Images are being scraped...' }
         format.json { render :show, status: :created, location: @scrape }
 
         ScrapeLargestImageJob.perform_later @scrape

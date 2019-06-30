@@ -1,24 +1,35 @@
-# README
+# Image Scraper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This simple web app scrapes all the images from a webpage and identifies the largest image.
 
-Things you may want to cover:
+## Tech Stack
 
-* Ruby version
+- Ruby on Rails
+- ActiveJob + DelayedJob - to run image scraping in background
+- FastImage - to compute image dimensions
+- sqlite3 - can be substituted with any relational database
+- Bootstrap
 
-* System dependencies
+## Get started
 
-* Configuration
+```
+# install dependencies
+bundle install
 
-* Database creation
+# set up database
+rails db:create db:migrate
 
-* Database initialization
+# to run web server
+rails serve
 
-* How to run the test suite
+# to run background tasks
+bundle exec rake jobs:work
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# How it works
 
-* Deployment instructions
-
-* ...
+1. You enter an URL to scrape
+2. This creates a `Scrape`. In `scrape_controller.rb`, a background job is triggered to scrape all of that URL's images.
+3. We fetch the HTML for that webpage, extract all the image URLs, and create an `Image` in the database for each one
+4. Each `Image` has an associated `image_url` and a size, which is computed by multiplying the image's width and height (which we get using FastImage)
+5. The `Scrape` model has a method that returns the scrape's largest image
