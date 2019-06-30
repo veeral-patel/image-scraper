@@ -2,6 +2,8 @@
 
 This simple web app scrapes all the images from a webpage and identifies the largest image.
 
+Video Demo: [https://youtu.be/FijVBlnDzfc](https://youtu.be/FijVBlnDzfc)
+
 ## Tech Stack
 
 - Ruby on Rails
